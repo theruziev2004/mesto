@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px 18px;
+  list-style-type: 0;
 }
 
 @media screen and (max-width: 950px) {
