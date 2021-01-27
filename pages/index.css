@@ -19,7 +19,6 @@
 @import url(../blocks/photos/__image/photos__image.css);
 @import url(../blocks/photos/__list/photos__list.css);
 @import url(../blocks/photos/__like-button/photos__like-button.css);
-@import url(../blocks/photos/__like-container/photos__like-container.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
 @import url(../blocks/popup/popup.css);
@@ -31,7 +30,4 @@
 @import url(../blocks/edit-form/__input-name/edit-form__input-name.css);
 @import url(../blocks/edit-form/__input-caption/edit-form__input-caption.css);
 @import url(../blocks/edit-form/__save-button/edit-form__save-button.css);
-@import url(../blocks/edit-form/edit-form.css);
-@import url(../blocks/edit-form/edit-form.css);
-@import url(../blocks/edit-form/edit-form.css);
 @import url(../blocks/edit-form/edit-form.css);
