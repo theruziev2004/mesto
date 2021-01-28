@@ -1,6 +1,4 @@
 .photos__figcaption {
-  display: flex;
-  justify-content: space-between;
   padding: 24px 0 24px 21px;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
@@ -10,4 +8,5 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  width: 80%;
 }
