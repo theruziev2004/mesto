@@ -19,7 +19,7 @@
 * Картинки
 
 ### Ссылка на проект:
-
+https://theruziev2004.github.io/mesto/
 
 **Figma**
 
