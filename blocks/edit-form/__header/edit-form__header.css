@@ -11,7 +11,8 @@
 
 @media screen and (max-width: 767px) {
   .edit-form__header {
-    width: 238px;
+    max-width: 238px;
+    width: 100%;
     font-size: 18px;
   }
 }
