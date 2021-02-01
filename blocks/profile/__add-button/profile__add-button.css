@@ -3,7 +3,6 @@
   height: 50px;
   border: 2px solid #FFFFFF;
   box-sizing: border-box;
-  border-radius: 2px;
   cursor: pointer;
   padding: 0;
   background-color: #000000;
@@ -15,7 +14,6 @@
 }
 
 .profile__add-button:hover {
-  border: 2px solid #FFFFFF;
   opacity: 0.6;
 }
 

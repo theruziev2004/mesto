@@ -1,5 +1,5 @@
 .edit-form__header {
-  width: 358px;
+  max-width: 358px;
   margin: 0 0 24px;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;

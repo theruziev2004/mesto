@@ -10,12 +10,15 @@
   background-repeat: no-repeat;
   background-color: #FFFFFF;
   transition: opacity .3s ease;
+  align-self: center;
+  max-width: 30px;
+  text-align: center;
 }
 
 .photos__like-button:hover {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .photos__like-button:focus {
-  opacity: 0.6;
+  opacity: 0.5;
 }

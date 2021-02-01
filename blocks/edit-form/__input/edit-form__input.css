@@ -1,8 +1,7 @@
-.edit-form__input-name {
+.edit-form__input {
   margin: 17px 0 0 0;
-  padding: 13px 5px 13px 5px;
+  padding: 14px 5px 12px 5px;
   width: 348px;
-  height: 14px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   font-family: 'Inter', Arial, sans-serif;
@@ -14,7 +13,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .edit-form__input-name {
-    width: 190px;
+  .edit-form__input {
+    max-width: 190px;
   }
 }
