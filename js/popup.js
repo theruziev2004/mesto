@@ -1,3 +1,4 @@
+// Редактировать профиль
 let popUp = document.querySelector('.popup');
 let editForm = document.querySelector('.edit-form');
 let formCloseButton = editForm.querySelector('.edit-form__close-button');
@@ -31,3 +32,9 @@ function saveForm(evt) {
 profileEditButton.addEventListener('click', openPopUp);
 formCloseButton.addEventListener('click', closePopUp);
 editForm.addEventListener('submit', saveForm);
+
+// Кнопка удалить
+
+function deleteSelf(button) {
+    button.remove();
+}
