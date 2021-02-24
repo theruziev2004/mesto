@@ -42,7 +42,7 @@
 /*=======photos=====*/
 
 @import url(../blocks/photos/photos.css);
-@import url(../blocks/photos/__figure/photos__figure.css);
+@import url(../blocks/photos/_figure/photos_figure.css);
 @import url(../blocks/photos/__figcaption/photos__figcaption.css);
 @import url(../blocks/photos/__card/photos__card.css);
 @import url(../blocks/photos/__image/photos__image.css);
