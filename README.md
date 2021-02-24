@@ -1,7 +1,6 @@
 # Проект 4: Место
 
 ### Ссылка на проект:
-https://theruziev2004.github.io/mesto/
 
 ###  Технологии:
 * Flexbox
