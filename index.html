@@ -28,54 +28,6 @@
     </section>
     <section class="photos">
       <ul class="photos__list">
-        <li class="photos__card" onclick="deleteSelf(this)">
-          <img src="./images/photo/1-12.jpg" alt="Котёнок из Шрека" class="photos__image">
-          <div class="photos__figure">
-            <h2 class="photos__figcaption">Котёнок из Шрека</h2>
-            <button class="photos__delete-button" aria-label="удалить фотографию"></button>
-            <button class="photos__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="photos__card" onclick="deleteSelf(this)">
-          <img src="./images/photo/205429-1.jpg" alt="Разноцветные Котята" class="photos__image">
-          <div class="photos__figure">
-            <h2 class="photos__figcaption">Котята</h2>
-            <button class="photos__delete-button" aria-label="удалить фотографию"></button>
-            <button class="photos__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="photos__card" onclick="deleteSelf(this)">
-          <img src="./images/photo/anime-muzhchiny-33593.jpg" alt="Курокко" class="photos__image">
-          <div class="photos__figure">
-            <h2 class="photos__figcaption">Баскетбол Курокко</h2>
-            <button class="photos__delete-button" aria-label="удалить фотографию"></button>
-            <button class="photos__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="photos__card" onclick="deleteSelf(this)">
-          <img src="./images/photo/assassins_creed.jpg" class="photos__image" alt="Assassins Creed">
-          <div class="photos__figure">
-            <h2 class="photos__figcaption">Assassins Creed</h2>
-            <button class="photos__delete-button" aria-label="удалить фотографию"></button>
-            <button class="photos__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="photos__card" onclick="deleteSelf(this)">
-          <img src="./images/photo/depositphotos_4742819-stock-photo-fire-letter.jpg" alt="Буква D" class="photos__image">
-          <div class="photos__figure">
-            <h2 class="photos__figcaption">D</h2>
-            <button class="photos__delete-button" aria-label="удалить фотографию"></button>
-            <button class="photos__like-button" type="button"></button>
-          </div>
-        </li>
-        <li class="photos__card" onclick="deleteSelf(this)">
-          <img src="./images/photo/3672d803c9b2da51c7b851c446dd418b.jpg" alt="Розовый Кекс" class="photos__image">
-          <div class="photos__figure">
-            <h2 class="photos__figcaption">Кексик</h2>
-            <button class="photos__delete-button" aria-label="удалить фотографию"></button>
-            <button class="photos__like-button" type="button"></button>
-          </div>
-        </li>
       </ul>
     </section>
   </main>
@@ -83,9 +35,9 @@
     <p class="footer__author ">&copy; 2020 Mesto Russia</p>
   </footer>
   <!--Редактировать профиль-->
-  <div class="popup">
-    <form class="popup__container edit-form" name="info">
-      <button class="edit-form__close-button" aria-label="закрыть форму" type="button"></button>
+  <div class="popup popup-edit">
+    <form class="popup__container edit-form" name="info" id="edit-form">
+      <button class="edit-form__close-button" aria-label="закрыть форму" type="button" id="edit"></button>
       <h2 class="edit-form__header ">Редактировать профиль</h2>
       <input class="edit-form__input" type="text" id="profile-name" aria-label="Имя" placeholder="Имя" name="name ">
       <input class="edit-form__input" type="text" id="profile-caption" aria-label="Подпись" placeholder="Подпись " name="about ">
@@ -93,6 +45,42 @@
     </form>
   </div>
 
+  <!--Новое место-->
+  <div class="popup popup-add">
+    <form class="popup__container edit-form" name="photo" id="add-form">
+      <button class="edit-form__close-button" aria-label="закрыть форму" type="button" id="add"></button>
+      <h2 class="edit-form__header ">Новое место</h2>
+      <input class="edit-form__input" type="text" id="name" aria-label="Имя" placeholder="Название" name="name">
+      <input class="edit-form__input" type="text" id="image" aria-label="Подпись" placeholder="Ссылка на картинку" name="about">
+      <button class="edit-form__save-button" type="submit" id="add">Сохранить</button>
+    </form>
+  </div>
+
+
+
+  <div class="popup popup-photos">
+    <div class="popup__container popup-photos__container">
+      <figure class="photos__figure popup-photos__figure">
+        <img src="" alt="" class="popup-photos__image">
+        <figcaption class="popup-photos__figcaption"></figcaption>
+      </figure>
+      <button class="popup__close-button popup-photos__close-button" aria-label="закрыть просмотр фотографии"></button>
+    </div>
+  </div>
+
+
+  <template id="photos-element">
+    <li class="photos__card">
+      <figure class="photos__figure">
+        <img src="" alt="" class="photos__image">
+        <figcaption class="photos__figcaption"></figcaption>
+      </figure>
+      <button class="photos__delete-button" aria-label="удалить фотографию"></button>
+      <div class="photos__like-container">
+      <button class="photos__like-button" aria-label="поставить лайк"></button>
+    </div>
+    </li>
+  </template>
   <script src="js/popup.js"></script>
 </body>
 
