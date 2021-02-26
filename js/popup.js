@@ -131,7 +131,7 @@ photosAddButton.addEventListener('click', function() {
 
 
 // Close Popup
-const closeButtons = document.querySelectorAll('#close');
+const closeButtons = document.querySelectorAll('.edit-form__close-button');
 
 function closePopup(popupCurrent) {
     popupCurrent.classList.remove('popup_opened');
