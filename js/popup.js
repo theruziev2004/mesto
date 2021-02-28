@@ -24,12 +24,7 @@ const initialCards = [{
     }
 ];
 
-const popUp = document.querySelector('.popup');
-
-const popupOpen = document.querySelector('#popup-open')
-
 const popUpEdit = document.querySelector('.popup-edit');
-
 const popUpAdd = document.querySelector('.popup-add');
 
 const popUpPhotos = document.querySelector('.popup-photos');
@@ -53,72 +48,60 @@ const photosAddButton = profile.querySelector('.profile__add-button');
 const photos = document.querySelector('.photos');
 const photosList = photos.querySelector('.photos__list');
 
-
 const photosElement = document.querySelector('#photos-element').content;
 const popUpPhotosImage = popUpPhotos.querySelector('.popup-photos__image');
 const popUpPhotosFigcaption = popUpPhotos.querySelector('.popup-photos__figcaption');
 
 
-function createCard(name, link, where = 'append') {
+function addCard(container, card) {
+    container.prepend(card);
+}
+
+function createCard(name, link) {
     const photosCard = photosElement.cloneNode(true);
     const photosImage = photosCard.querySelector('.photos__image');
     const photosFigcaption = photosCard.querySelector('.photos__figcaption');
+    const altImage = 'фотография ' + name;
 
     photosImage.src = link;
-    photosImage.alt = 'фотография ' + name;
+    photosImage.alt = altImage;
     photosFigcaption.textContent = name;
 
     const photosLikeButton = photosCard.querySelector('.photos__like-button');
-    photosLikeButton.addEventListener('click', likePhoto);
+    photosLikeButton.addEventListener('click', (evt) => {
+        evt.target.classList.toggle('photos__like-button_liked');
+    });
 
     const photosDeleteButton = photosCard.querySelector('.photos__delete-button');
-    photosDeleteButton.addEventListener('click', deletePhotoButton);
+    photosDeleteButton.addEventListener('click', (evt) => {
+        evt.target.closest('.photos__card').remove();
+    });
 
-    photosImage.addEventListener('click', function openPhoto(evt) {
-        const figure = evt.path[1];
-        const img = figure.querySelector('.photos__image');
-        const figcaption = figure.querySelector('.photos__figcaption');
-        popUpPhotosImage.src = img.src;
-        popUpPhotosImage.alt = img.alt;
-        popUpPhotosFigcaption.textContent = figcaption.textContent;
-        popUpPhotos.classList.add('popup_opened');
+    photosImage.addEventListener('click', () => {
+        // не вынес в глобальную область видимости так как он нужен только здесь
+        showPopup(popUpPhotos);
+        popUpPhotosImage.src = link;
+        popUpPhotosImage.alt = altImage;
+        popUpPhotosFigcaption.textContent = name;
+
     })
-
-
-    if (where === 'append') {
-        photosList.append(photosCard);
-    } else if (where === 'prepend') {
-        photosList.prepend(photosCard);
-    }
+    return photosCard;
 }
-
-
-
 
 function initializePhotos(arr) {
     arr.forEach(elem => {
-        createCard(elem.name, elem.link, 'append');
+        addCard(photosList, createCard(elem.name, elem.link));
     });
-}
-
-function initializeProfileInfo() {
-    inputProfileName.value = profileName.textContent;
-    inputProfileCaption.value = profileCaption.textContent;
-    closePopup(popUpEdit)
-}
-
-
-
-function addCard(evt) {
-    evt.preventDefault();
-    createCard(inputPhotoName.value, inputPhotoLink.value, 'prepend');
-    addForm.reset(inputPhotoName, inputPhotoLink);
-    closePopup(popUpAdd)
 }
 
 // Open Popup
 function showPopup(popupCurrent) {
     popupCurrent.classList.add('popup_opened');
+}
+
+// Close Popup
+function closePopup(popupCurrent) {
+    popupCurrent.classList.remove('popup_opened');
 }
 
 profileEditButton.addEventListener('click', function() {
@@ -129,21 +112,12 @@ photosAddButton.addEventListener('click', function() {
     showPopup(popUpAdd);
 })
 
+popUpPhotosCloseButton.addEventListener('click', () => {
+    popUpPhotos.classList.remove('popup_opened');
+});
 
 // Close Popup
 const closeButtons = document.querySelectorAll('.edit-form__close-button');
-
-function closePopup(popupCurrent) {
-    popupCurrent.classList.remove('popup_opened');
-
-}
-
-function closePopupOut(evt) {
-    const popupOpened = document.querySelector('.popup_opened');
-    closePopup(popupOpened);
-}
-
-
 closeButtons.forEach(function(element) {
     element.addEventListener('click', function(evt) {
         const popupVisible = evt.target.closest('.popup');
@@ -152,35 +126,21 @@ closeButtons.forEach(function(element) {
 })
 
 
-
-function profileSaveForm(evt) {
+editForm.addEventListener('submit', evt => {
     evt.preventDefault();
     profileName.textContent = inputProfileName.value;
     profileCaption.textContent = inputProfileCaption.value;
-    closePopupOut(popUpEdit);
-}
-
-function likePhoto(evt) {
-    evt.target.classList.toggle('photos__like-button_liked');
-}
-
-function deletePhotoButton(evt) {
-    evt.target.closest('.photos__card').remove();
-}
-
-function closePhoto() {
-    popUpPhotos.classList.remove('popup_opened');
-}
+    closePopup(popUpEdit);
+});
 
 
+addForm.addEventListener('submit', evt => {
+    evt.preventDefault();
+    addCard(photosList, createCard(inputPhotoName.value, inputPhotoLink.value));
+    addForm.reset();
+    closePopup(popUpAdd)
 
+});
 
-
-
-editForm.addEventListener('submit', profileSaveForm, initializeProfileInfo());
-
-
-addForm.addEventListener('submit', addCard);
-popUpPhotosCloseButton.addEventListener('click', closePhoto);
 
 initializePhotos(initialCards);
