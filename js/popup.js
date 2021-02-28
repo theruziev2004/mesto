@@ -105,6 +105,8 @@ function closePopup(popupCurrent) {
 }
 
 profileEditButton.addEventListener('click', function() {
+    inputProfileName.value = profileName.textContent;
+    inputProfileCaption.value = profileCaption.textContent;
     showPopup(popUpEdit);
 })
 
